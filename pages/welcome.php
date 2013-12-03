@@ -1,13 +1,23 @@
 <?php
+/**
+ * Display a welcome page with instructions about the pending email validation
+ */
+
+$user = get_user(get_input('guid'));
+
 $site = elgg_get_site_entity();
-$site_name = $site->name;
 
-$content = elgg_echo('welcome:title');
-$content .= elgg_echo('welcome:text');
-$content .= "<strong> $name </strong> on " . $site_name .".<br>";
-$content .= elgg_echo('welcome:text_email');
-$content .= "<strong> $email</strong>";
+$content = elgg_echo('welcome:text', array(
+	$user->name,
+	$site->name,
+	$user->email
+));
 
-$body = elgg_view_layout('one_sidebar', array('content' => $content));
+$params = array(
+	'title' => elgg_echo('welcome:title'),
+	'content' => $content,
+);
+
+$body = elgg_view_layout('content', $params);
 
 echo elgg_view_page(elgg_echo('welcome'), $body);

@@ -13,7 +13,7 @@ elgg_register_event_handler('init', 'system', 'welcome_init');
  */
 function welcome_init() {
 	elgg_register_page_handler('welcome', 'welcome_page_handler');
-	elgg_register_plugin_hook_handler("forward", "system", "welcome_forward_hook");
+	elgg_register_plugin_hook_handler('forward', 'system', 'welcome_forward_hook');
 }
 
 /**
@@ -26,17 +26,34 @@ function welcome_init() {
  * @return string $forward_url The new forward url
  */
 function welcome_forward_hook($hook_name, $type, $return, $params) {
-	$register_url = elgg_get_site_url() . 'action/register';
+	$current = current_page_url();
 
-	if (elgg_get_config('https_login')) {
-		$register_url = str_replace("http:", "https:", $register_url);
+	// Check whether user is being forwarded from the registration action
+	if (strpos($current, 'action/register' === false)) {
+		return $return;
 	}
 
-	if (current_page_url() == $register_url) {
-		$forward_url = "/welcome?email={$email}&name={$name}";
+	$username = get_input('username');
+
+	// User validation by email has disabled the user so we need to
+	// explicitly include hidden entities in the database query
+	$hidden_status = access_get_show_hidden_status();
+	access_show_hidden_entities(true);
+
+	$user = get_user_by_username($username);
+
+	// Set hidden entity status back to normal
+	access_show_hidden_entities($hidden_status);
+
+	if (!$user) {
+		// User does not exist meaning that registration failed
+		return $return;
 	}
 
-	return $forward_url;
+	// Pass on the user GUID in the url so the welcome page can access the user
+	$welcome_url = elgg_normalize_url("welcome/{$user->guid}");
+
+	return $welcome_url;
 }
 
 /**
@@ -46,6 +63,22 @@ function welcome_forward_hook($hook_name, $type, $return, $params) {
  * @return boolean
  */
 function welcome_page_handler($page) {
+	// User validation by email has disabled the user so we need to
+	// explicitly include hidden entities in the database query
+	$hidden_status = access_get_show_hidden_status();
+	access_show_hidden_entities(true);
+
+	$user = get_user($page[0]);
+
+	// Set hidden entity status back to normal
+	access_show_hidden_entities($hidden_status);
+
+	if (!$user) {
+		forward();
+	}
+
+	set_input('guid', $user->guid);
+
 	$base = elgg_get_plugins_path() . 'welcome/pages/';
 
 	switch ($page[0]) {
