@@ -1,6 +1,6 @@
 <?php
 
-$user=elgg_get_logged_in_user_entity();
+$user = elgg_get_logged_in_user_entity();
 
 ?>
 <head>
@@ -8,13 +8,13 @@ $user=elgg_get_logged_in_user_entity();
 </head>
 <?php
 
-  $content = "<br>";
-  $content .= "<br>";
-  $content .= "<h2>Welcome $user->username</h2>";
-  $content .= "<br>";
-  $content .= "You have succesfull registered as <strong>$user->username</strong> from <strong>$location</strong> . Great that you joined <br><br>";
-  $content .= "<br>";
-  $content .= "<br>We will now forward you to complete your profile.";
+$content = "<br>";
+$content .= "<br>";
+$content .= "<h2>Welcome $user->username</h2>";
+$content .= "<br>";
+$content .= "You have succesfull registered as <strong>$user->username</strong> from <strong>$location</strong> . Great that you joined <br><br>";
+$content .= "<br>";
+$content .= "<br>We will now forward you to complete your profile.";
 
 $body = elgg_view_layout('one_sidebar', array('content' => $content));
 
