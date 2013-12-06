@@ -13,4 +13,9 @@
 		<type>elgg_release</type>
 		<version>1.8</version>
 	</requires>
+        <requires>
+                <type>plugin</type>
+                <name>uservalidationbyemail</name>
+                <version>1.8</version>
+        </requires>
 </plugin_manifest>
