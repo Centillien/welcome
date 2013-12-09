@@ -13,9 +13,11 @@ elgg_register_event_handler('init', 'system', 'welcome_init');
  */
 function welcome_init() {
 	elgg_register_page_handler('welcome', 'welcome_page_handler');
-	if (elgg_is_active_plugin('uservalidationbyemail')){
 	elgg_register_plugin_hook_handler('forward', 'system', 'welcome_forward_hook');
-	}
+
+	$action_path = dirname(__FILE__) . '/actions';
+	elgg_register_action('welcome/change_user_email', "$action_path/change_user_email.php", 'public');
+	elgg_register_ajax_view('welcome/change_email');
 }
 
 /**
@@ -30,10 +32,11 @@ function welcome_init() {
 function welcome_forward_hook($hook_name, $type, $return, $params) {
 	$current = current_page_url();
 
-	// Check whether user is being forwarded from the registration action and not already logged in.
+	// Check whether user is being forwarded from the registration action
 	if (strpos($current, 'action/register') === false) {
 		return $return;
 	}
+
 
 	$username = get_input('username');
 
