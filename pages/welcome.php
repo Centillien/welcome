@@ -2,6 +2,11 @@
 /**
  * Display a welcome page with instructions about the pending email validation
  */
+if (elgg_get_user_validation_status($user->guid) == true) {
+  register_error(elgg_echo('notallowed'));
+  forward('/');
+}
+
 
 $user = get_user(get_input('guid'));
 
