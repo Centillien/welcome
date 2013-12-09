@@ -31,7 +31,7 @@ function welcome_forward_hook($hook_name, $type, $return, $params) {
 	$current = current_page_url();
 
 	// Check whether user is being forwarded from the registration action and not already logged in.
-	if (strpos($current, 'action/register') === false || elgg_is_logged_in()) {
+	if (strpos($current, 'action/register') === false) {
 		return $return;
 	}
 
