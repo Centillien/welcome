@@ -13,8 +13,12 @@ elgg_register_event_handler('init', 'system', 'welcome_init');
  */
 function welcome_init() {
 	elgg_register_page_handler('welcome', 'welcome_page_handler');
-	elgg_register_plugin_hook_handler('forward', 'system', 'welcome_forward_hook');
+	
+	if (elgg_is_active_plugin('uservalidationbyemail') || elgg_is_active_plugin('uservalidationbyadmin')){	
+		elgg_register_plugin_hook_handler('forward', 'system', 'welcome_forward_hook');
+	}
 
+	//Register action path for email change
 	$action_path = dirname(__FILE__) . '/actions';
 	elgg_register_action('welcome/change_user_email', "$action_path/change_user_email.php", 'public');
 	elgg_register_ajax_view('welcome/change_email');
