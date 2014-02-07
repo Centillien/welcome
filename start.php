@@ -18,6 +18,9 @@ function welcome_init() {
 	$action_path = dirname(__FILE__) . '/actions';
 	elgg_register_action('welcome/change_user_email', "$action_path/change_user_email.php", 'public');
 	elgg_register_ajax_view('welcome/change_email');
+
+	//Support for walled garden
+	elgg_register_plugin_hook_handler('public_pages', 'walled_garden', 'welcome_public_pages');
 }
 
 /**
@@ -94,3 +97,20 @@ function welcome_page_handler($page) {
 
 	return true;
 }
+
+/**
+*
+* Extend public pages
+* @param unknown_type $hook_name
+* @param unknown_type $entity_type
+* @param unknown_type $return_value
+* @param unknown_type $parameters
+*/
+function welcome_public_pages($hook_name, $entity_type, $return_value, $params){
+	$return = $return_value;
+		if(is_array($return)){
+			$return[] = "welcome*";
+		}
+		return $return;
+	}
+

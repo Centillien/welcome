@@ -1,17 +1,7 @@
 <?php
 
 /**
- * Unvalidatedemailchange plugin
- * iionly
- * Contact: iionly@gmx.de
  *
- * The Unvalidatedemailchange is based on:
- *
- * @package simpleusermanagement
- * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
- * @author Pjotr Savitski
- * @copyright (C) Pjotr Savitski
- * @link http://code.google.com/p/simpleusermanagement/
  **/
 if (elgg_get_user_validation_status($user->guid) == false) {
   register_error(elgg_echo('notallowed'));
