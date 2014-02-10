@@ -10,11 +10,21 @@ if (elgg_get_user_validation_status($user->guid) == true) {
 $user = get_user(get_input('guid'));
 $site = elgg_get_site_entity();
 
+$email = trim($user->email);
+
+if(!checkEmail($email)) {
+$content = elgg_echo('welcome:wrongemail', array(
+        $user->name,
+        $site->name,
+        $user->email
+));
+}else{ 
 $content = elgg_echo('welcome:text', array(
         $user->name,
         $site->name,
         $user->email
 ));
+}
 
 // Create button to be able to change email
 if (elgg_is_active_plugin('unvalidatedemailchange')) {
@@ -34,7 +44,13 @@ if($count <= "1") {
         	'contexts' => array("welcome","welcome-social"),
         	'class' => 'elgg-button elgg-lightbox',
 	));
-	$content .= elgg_echo('welcome:changeemailtext');
+	if(checkEmail($email)) {
+		$content .= elgg_echo('welcome:changeemailtext');
+                if(elgg_is_active_plugin("contact")){
+                        $content .= elgg_echo('welcome:changeemailcontact');
+                }
+
+	}
 	access_show_hidden_entities($hidden_status);
 	}else{
 		if(elgg_is_active_plugin("contact")){
@@ -44,11 +60,10 @@ if($count <= "1") {
 }
 
 if(elgg_is_active_plugin("fbnotify")){
-$content .=  elgg_view('fbnotify/link');
+	if(checkEmail($email)) {
+		$content .=  elgg_view('fbnotify/link');
+	}
 }
-
-//Google conversion code
-//Put your Google code for conversion below
 
 $params = array(
         'title' => elgg_echo('welcome:title'),
@@ -61,4 +76,3 @@ $body = elgg_view_layout('content', $params);
 
 
 echo elgg_view_page(elgg_echo('welcome'), $body);
-

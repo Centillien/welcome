@@ -118,3 +118,11 @@ function welcome_public_pages($hook_name, $entity_type, $return_value, $params){
 		return $return;
 	}
 
+function checkEmail($email) {
+	list($username,$domain)=split('@',$email);
+  	if(!checkdnsrr($domain,'MX')) {
+   		return false;
+  	}else{
+  		return true;
+	}
+}
