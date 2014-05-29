@@ -27,8 +27,7 @@ $content = elgg_echo('welcome:text', array(
 }
 
 // Create button to be able to change email
-if (elgg_is_active_plugin('unvalidatedemailchange')) {
-	elgg_register_title_button();
+elgg_register_title_button();
 
 $count = (int) $user->getPrivateSetting("welcome_email_count");
 $user->setPrivateSetting("welcome_email_count", $count + 1);
@@ -56,8 +55,8 @@ if($count <= "1") {
 		if(elgg_is_active_plugin("contact")){
 			$content .= elgg_echo('welcome:changeemailcontact');
 		}
-	}
 }
+
 
 if(elgg_is_active_plugin("fbnotify")){
 	if(checkEmail($email)) {
