@@ -33,28 +33,25 @@ $count = (int) $user->getPrivateSetting("welcome_email_count");
 $user->setPrivateSetting("welcome_email_count", $count + 1);
 if($count <= "1") {
 
-	$hidden_status = access_get_show_hidden_status();
-	access_show_hidden_entities(true);
-	$url = elgg_get_site_url() . 'ajax/view/welcome/change_email/?user_guid='. $user->guid .'&user_name='. $user->username;
-	elgg_register_menu_item('title', array(
-        	'name' => 'changeemail',
-        	'href' => $url,
-        	'text' => elgg_echo('welcome:changeemail'),
-        	'contexts' => array("welcome","welcome-social"),
-        	'class' => 'elgg-button elgg-lightbox',
-	));
-	if(checkEmail($email)) {
-		$content .= elgg_echo('welcome:changeemailtext');
-                if(elgg_is_active_plugin("contact")){
-                        $content .= elgg_echo('welcome:changeemailcontact');
-                }
-
-	}
-	access_show_hidden_entities($hidden_status);
-	}else{
-		if(elgg_is_active_plugin("contact")){
-			$content .= elgg_echo('welcome:changeemailcontact');
-		}
+        $hidden_status = access_get_show_hidden_status();
+        access_show_hidden_entities(true);
+        $url = elgg_get_site_url() . 'ajax/view/welcome/change_email/?user_guid='. $user->guid .'&user_name='. $user->username;
+        elgg_register_menu_item('title', array(
+                'name' => 'changeemail',
+                'href' => $url,
+                'text' => elgg_echo('welcome:changeemail'),
+                'contexts' => array("welcome","welcome-social"),
+                'class' => 'elgg-button elgg-lightbox',
+        ));
+        if(checkEmail($email)) {
+                $content .= elgg_echo('welcome:changeemailtext');
+        }
+        access_show_hidden_entities($hidden_status);
+}
+if($count > "1") {
+        if(elgg_is_active_plugin("contact")){
+                        $content = elgg_echo('welcome:changeemailcontact');
+        }
 }
 
 
