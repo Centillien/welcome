@@ -3,7 +3,7 @@
 	<name>Welcome page</name>
 	<id>welcome</id>
 	<author>Gerard Kanters and Juho Jaakkola</author>
-	<version>1.0.3</version>
+	<version>1.9</version>
 	<category>enhancement</category>
 	<category>Third Party Integration</category>
 	<description>Adds a welcome page for newly registered members</description>
