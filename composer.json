@@ -1,6 +1,6 @@
 {
   "name": "centillien/welcome",
-  "description": "Add SEO tags to your Elgg site.",
+  "description": "Adds a welcome page for newly registered members.",
   "type": "elgg-plugin",
   "keywords": [
     "elgg",
