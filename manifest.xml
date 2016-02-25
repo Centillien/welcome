@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin_manifest xmlns="http://www.elgg.org/plugin_manifest/1.8">
-	<name>Welcome page</name>
-	<id>welcome</id>
-	<author>Gerard Kanters and Juho Jaakkola</author>
-	<version>1.9</version>
-	<category>enhancement</category>
-	<category>Third Party Integration</category>
-	<description>Adds a welcome page for newly registered members</description>
-	<website>https://www.centillien.com/</website>
-	<copyright>Centillien B.V.</copyright>
-	<license>GNU General Public License version 2</license>
-	<requires>
-		<type>elgg_release</type>
-		<version>1.8</version>
-	</requires>
-        <requires>
-                <type>plugin</type>
-                <name>uservalidationbyemail</name>
-                <version>1.8</version>
-        </requires>
+    <name>Welcome page</name>
+    <id>welcome</id>
+    <author>Gerard Kanters and Juho Jaakkola</author>
+    <version>1.9</version>
+    <category>enhancement</category>
+    <category>Third Party Integration</category>
+    <description>Adds a welcome page for newly registered members</description>
+    <website>https://www.centillien.com/</website>
+    <copyright>Centillien B.V.</copyright>
+    <license>GNU General Public License version 2</license>
+    <requires>
+        <type>elgg_release</type>
+        <version>1.8</version>
+    </requires>
+    <requires>
+        <type>plugin</type>
+        <name>uservalidationbyemail</name>
+        <version>1.8</version>
+    </requires>
 </plugin_manifest>
