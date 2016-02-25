@@ -61,7 +61,7 @@ if ($count <= 1 || !$emailCheck) {
             'welcome',
             'welcome-social'
         ],
-        'class' => 'elgg-button elgg-lightbox',
+        'class' => 'elgg-button elgg-button-action elgg-lightbox',
     ]);
 
     if (checkEmail($email)) {
