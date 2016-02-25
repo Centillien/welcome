@@ -24,19 +24,20 @@ $user = get_user(get_input('guid'));
 $site = elgg_get_site_entity();
 
 $email = trim($user->email);
+$emailCheck = checkEmail($email);
 
-if(!checkEmail($email)) {
-$content = elgg_echo('welcome:wrongemail', array(
+if (!$emailCheck) {
+    $content = elgg_echo('welcome:wrongemail', array(
         $user->name,
         $site->name,
         $user->email
-));
-}else{ 
-$content = elgg_echo('welcome:text', array(
+    ));
+} else {
+    $content = elgg_echo('welcome:text', array(
         $user->name,
         $site->name,
         $user->email
-));
+    ));
 }
 
 // Create button to be able to change email
