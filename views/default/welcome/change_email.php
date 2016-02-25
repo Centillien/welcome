@@ -1,10 +1,14 @@
 <?php
-
 /**
- * Welcome plugin
- * (c) Centillien 
- * Website: https://www.centillien.com
+ * Elgg welcome plugin change email ajax form
  *
+ * @author Gerard Kanters
+ * @author Wouter van Os
+ * @author Juho Jaakkola
+ *
+ * @website https://www.centillien.com
+ *
+ * @copyright Centillien 2016
  */
 
 $user_guid = $vars['user_guid'];

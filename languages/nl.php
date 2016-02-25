@@ -1,6 +1,14 @@
 <?php
 /**
- * Elgg welcome plugin
+ * Elgg welcome plugin nl language
+ *
+ * @author Gerard Kanters
+ * @author Wouter van Os
+ * @author Juho Jaakkola
+ *
+ * @website https://www.centillien.com
+ *
+ * @copyright Centillien 2016
  */
 
 $dutch = array(
