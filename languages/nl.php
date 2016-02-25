@@ -17,7 +17,7 @@ $dutch = array(
         'welcome:text' => '<p>Welkom %s, u hebt succesvol geregistreerd bij  %s.</p>
 <p>Voordat u in kunt loggen, moet u uw account valideren. We hebben een email gestuurd met een activatie link daarin naar <strong>%s</strong>. Controleer nu uw inbox en klik op deze link om in te kunnen loggen.<p>
 <p>Als u geen email in uw inbox ziet, controleer dan uw spam folder of speciale tab voor sociale netwerken.</p>',
-        'welcome:wrongemail' =>  '<p>Welkom %s, de registratie van uw account op %s kan niet worden voltooid. </p> Het lijkt er namelijk op dat u een foutief email adres hebt ingegeven. Controle op internet geeft aan dat het email adres <strong>%s</strong> niet bereikbaar is<br><br>. U kunt het adres corrigeren met de button boven aan de pagina. ',
+        'welcome:wrongemail' =>  '<p>Welkom %s, de registratie van uw account op %s kan niet worden voltooid. </p> Het lijkt er namelijk op dat u een foutief email adres hebt ingegeven. Controle op internet geeft aan dat het email adres <strong>%s</strong> niet bereikbaar is. U kunt het adres corrigeren met de button boven aan de pagina. ',
 
         'welcome:changeemail' => 'Verander email',
         'welcome:changeemailtext' => '<p>Mocht u per ongeluk het verkeerde email adres hebben ingegeven, kunt u dit eenmalig verandere met de <strong>button</strong> hierboven</p>',
