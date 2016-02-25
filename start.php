@@ -21,7 +21,7 @@ function welcome_init()
     elgg_register_page_handler('welcome', 'welcome_page_handler');
 
     if (elgg_is_active_plugin('uservalidationbyemail')) {
-        elgg_register_plugin_hook_handler('forward', 'system', 'welcome_forward_hook');
+        elgg_register_plugin_hook_handler('forward', 'system', 'welcome_forward_hook', 600);
     }
 
     //Register action path for email change
