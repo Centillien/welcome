@@ -17,6 +17,9 @@ if (elgg_get_user_validation_status($user->guid) == true) {
     forward('/');
 }
 
+elgg_load_js('lightbox');
+elgg_load_css('lightbox');
+
 $user = get_user(get_input('guid'));
 $site = elgg_get_site_entity();
 
