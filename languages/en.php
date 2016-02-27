@@ -6,9 +6,9 @@
  * @author Wouter van Os
  * @author Juho Jaakkola
  *
- * @website https://www.centillien.com
+ * @website https://www.elgg.com
  *
- * @copyright Centillien 2016
+ * @copyright Elgg 2016
  */
 
 $english = array(
@@ -27,6 +27,7 @@ $english = array(
         'welcome:user_email_not_changed' => 'Email address of user %s could not be changed',
         'welcome:new_user_email' => 'Enter the new email address for %s: ',
         'welcome:change_email' => 'Change email',
+	'welcome:welcome_adwords'  => 'If you are using adwords to measure conversion, provide the snippet below and it will be placed in the welcome page, <br><strong>Disable HTMLAWED first </strong>',
 
 );
 

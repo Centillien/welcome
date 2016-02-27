@@ -6,9 +6,9 @@
  * @author Wouter van Os
  * @author Juho Jaakkola
  *
- * @website https://www.centillien.com
+ * @website https://www.elgg.com
  *
- * @copyright Centillien 2016
+ * @copyright Elgg 2016
  */
 
 $dutch = array(
@@ -28,6 +28,7 @@ $dutch = array(
         'welcome:user_email_not_changed' => 'Email adres van user %s kon niet worden veranderd',
         'welcome:new_user_email' => 'Geef het nieuwe email adres op voor  %s: ',
         'welcome:change_email' => 'Verander email',
+	'welcome:welcome_adwords'  => 'Als je adwords gebruikt en conversie wilt meten, geef de snippet hieronder in.<br><strong> HTMLAWED moet disabled zijn voordat je het opslaat</strong>',
 
 );
 

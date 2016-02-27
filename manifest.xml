@@ -7,8 +7,8 @@
     <category>enhancement</category>
     <category>Third Party Integration</category>
     <description>Adds a welcome page for newly registered members</description>
-    <website>https://www.centillien.com/</website>
-    <copyright>Centillien B.V.</copyright>
+    <website>https://www.elgg.com/</website>
+    <copyright>Elgg B.V.</copyright>
     <license>GNU General Public License version 2</license>
     <requires>
         <type>elgg_release</type>
