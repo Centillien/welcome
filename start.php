@@ -18,6 +18,9 @@ elgg_register_event_handler('init', 'system', 'welcome_init');
  */
 function welcome_init()
 {
+    if (elgg_is_admin_logged_in()) {
+       elgg_unregister_plugin_hook_handler('validate', 'input', 'htmlawed_filter_tags');
+    }
     elgg_register_page_handler('welcome', 'welcome_page_handler');
 
     elgg_register_plugin_hook_handler('forward', 'system', 'welcome_forward_hook', 600);
