@@ -124,9 +124,19 @@ function welcome_page_handler($page)
  */
 function welcome_public_pages($hook_name, $entity, $return, $params)
 {
-    // Add welcome* to the array when it's an array.
-    if (is_array($return)) {
-        $return[] = 'welcome*';
+    $return[] = "welcome/*";
+
+    // Because Elgg fails again. Workaround to add the current page url.
+    if (substr(elgg_get_version(true), 0, 4) == '1.12') {
+        $currentPage = substr(_elgg_services()->request->getRequestUri(), 1);
+
+        if (substr($currentPage, 0, 8) == 'welcome/') {
+            $return[] = rtrim(explode('?', $currentPage, 2)[0], '/');
+        }
+
+        if (substr($currentPage, 0, 18) == 'ajax/view/welcome/') {
+            $return[] = rtrim(explode('?', $currentPage, 2)[0], '/');
+        }
     }
 
     return $return;
