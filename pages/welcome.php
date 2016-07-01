@@ -7,9 +7,9 @@
  * @author Wouter van Os
  * @author Juho Jaakkola
  *
- * @website https://www.elgg.com
+ * @website https://www.centillien.com
  *
- * @copyright Elgg 2016
+ * @copyright Centillien 2016
  */
 
 if (elgg_get_user_validation_status($user->guid) == true) {
@@ -79,11 +79,6 @@ if (elgg_is_active_plugin('fbnotify')) {
     if (checkEmail($email)) {
         $content .= elgg_view('fbnotify/link');
     }
-}
-
-$adwords = elgg_get_plugin_setting("welcome_adwords","welcome");
-if($adwords) {
-	         $content .= $adwords;
 }
 
 $params = array(

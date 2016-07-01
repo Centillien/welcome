@@ -6,9 +6,9 @@
  * @author Wouter van Os
  * @author Juho Jaakkola
  *
- * @website https://www.elgg.com
+ * @website https://www.centillien.com
  *
- * @copyright Elgg 2016
+ * @copyright Centillien 2016
  */
 
 if (elgg_get_user_validation_status($user->guid) == false) {

@@ -1,5 +1,5 @@
 {
-  "name": "elgg/welcome",
+  "name": "centillien/welcome",
   "description": "Adds a welcome page for newly registered members.",
   "type": "elgg-plugin",
   "keywords": [

@@ -6,9 +6,9 @@
  * @author Wouter van Os
  * @author Juho Jaakkola
  *
- * @website https://www.elgg.com
+ * @website https://www.centillien.com
  *
- * @copyright Elgg 2016
+ * @copyright Centillien 2016
  */
 
 $user_guid = $vars['user_guid'];
