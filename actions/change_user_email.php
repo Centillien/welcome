@@ -38,9 +38,13 @@ if (!empty($user_guid) && !empty($new_email)) {
             elgg_set_ignore_access(true);
             elgg_override_permissions(true);
 
-            // Change user email
-            $user->email = $new_email;
-            $user->save();
+            // Check if email address is not in use, then save new email address
+            if (!get_user_by_email($email)) {
+                $user->email = $new_email;
+                $user->save();
+            } else {
+                register_error(elgg_echo('registration:dupeemail'));
+            }
 
             system_message(elgg_echo('welcome:user_email_changed_to', array($user->name, $new_email)));
 
