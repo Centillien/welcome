@@ -141,7 +141,7 @@ function welcome_public_pages($hook_name, $entity, $return, $params)
 function checkEmail($email)
 {
     // Get domain from e-mailadres
-    list(,$domain) = split('@', $email);
+    list(,$domain) = explode('@', $email);
 
     // Check if MX record exists for domain
     if (!checkdnsrr($domain, 'MX')) {
